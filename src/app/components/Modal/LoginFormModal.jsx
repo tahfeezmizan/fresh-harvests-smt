@@ -21,7 +21,7 @@ export default function LoginFormModal({ title }) {
     };
 
     return (
-        <div className="max-w-sm mx-auto bg-white p-6 rounded-lg text-black">
+        <div className="max-w-sm mx-auto bg-white p-10 py-12 rounded-lg text-black border border-[#D9D9D9]">
             {isLogin ? (
                 <div className="LoginForm">
                     <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
@@ -55,7 +55,7 @@ export default function LoginFormModal({ title }) {
                         </div>
                         <button type="submit" className="w-full bg-orange-500 text-white py-2 rounded-lg">Login</button>
                     </form>
-                    <p className="text-center text-sm font-semibold mt-4">Don’t have an account?
+                    <p className="text-center text-sm font-semibold mt-4">Don’t have an account? 
                         <button onClick={() => setIsLogin(false)} className="text-[#FF6A1A]"> Sign up</button>
                     </p>
                 </div>
@@ -102,7 +102,7 @@ export default function LoginFormModal({ title }) {
                         </div>
                         <button type="submit" className="w-full bg-orange-500 text-white py-2 rounded-lg">Register</button>
                     </form>
-                    <p className="text-center text-sm font-semibold mt-4">Already have an account?
+                    <p className="text-center text-sm font-semibold mt-4">Already have an account? 
                         <button onClick={() => setIsLogin(true)} className="text-[#FF6A1A]"> Log In</button>
                     </p>
                 </div>
