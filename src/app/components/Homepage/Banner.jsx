@@ -57,27 +57,8 @@ const Banner = () => {
         </div>
       </div>
 
-      {/* App Download Section */}
-      <div className="flex justify-center gap-8 mt-12 relative z-10">
-        <button className="flex items-center gap-2 bg-black text-white py-2 px-4 rounded-md">
-          <Image 
-            src="/app-store-icon.svg" 
-            alt="App Store" 
-            width={24} 
-            height={24} 
-          />
-          Download on the App Store
-        </button>
-        <button className="flex items-center gap-2 bg-black text-white py-2 px-4 rounded-md">
-          <Image 
-            src="/google-play-icon.svg" 
-            alt="Google Play" 
-            width={24} 
-            height={24} 
-          />
-          Get it on Google Play
-        </button>
-      </div>
+    
+      
     </div>
   )
 }

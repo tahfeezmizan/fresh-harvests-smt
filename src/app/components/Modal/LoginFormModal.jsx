@@ -1,4 +1,3 @@
-"use client"
 import { useLoginMutation, useRegisterMutation } from '@/app/redux/api/auth/authApi';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -24,7 +23,6 @@ export default function LoginFormModal({ title }) {
             console.log("Login Error:", error);
         }
     };
-
 
     const onRegisterSubmit = async (data) => {
         try {
@@ -57,7 +55,10 @@ export default function LoginFormModal({ title }) {
                             <label className="block text-sm font-medium mb-1">Password</label>
                             <input
                                 type={showPassword ? 'text' : 'password'}
-                                {...registerLogin('password', { required: 'Password is required' },)}
+                                {...registerLogin('password', { 
+                                    required: 'Password is required', 
+                                    minLength: { value: 8, message: 'Password must be at least 8 characters long' }
+                                })}
                                 className="w-full px-4 py-2 border border-[#D9D9D9] outline-none rounded"
                                 placeholder="Enter your password"
                             />
@@ -84,9 +85,9 @@ export default function LoginFormModal({ title }) {
                             <label className="block text-sm font-medium mb-1">Full Name</label>
                             <input
                                 type="text"
-                                {...registerRegister('fullName', { required: 'fullName is required' })}
+                                {...registerRegister('fullName', { required: 'Full Name is required' })}
                                 className="w-full px-4 py-2 border border-[#D9D9D9] outline-none rounded"
-                                placeholder="Enter your fullName"
+                                placeholder="Enter your full name"
                             />
                             {registerErrors.fullName && <p className="text-red-500 text-xs mt-1">{registerErrors.fullName.message}</p>}
                         </div>
@@ -104,7 +105,10 @@ export default function LoginFormModal({ title }) {
                             <label className="block text-sm font-medium mb-1">Password</label>
                             <input
                                 type={showPassword ? 'text' : 'password'}
-                                {...registerRegister('password', { required: 'Password is required' })}
+                                {...registerRegister('password', { 
+                                    required: 'Password is required', 
+                                    minLength: { value: 8, message: 'Password must be at least 8 characters long' }
+                                })}
                                 className="w-full px-4 py-2 border border-[#D9D9D9] outline-none rounded"
                                 placeholder="Enter your password"
                             />
