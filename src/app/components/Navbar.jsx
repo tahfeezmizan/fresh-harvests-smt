@@ -1,11 +1,14 @@
 "use client"
-import { useState } from "react";
-import { FiMenu, FiX, FiHeart, FiShoppingCart, FiUser } from "react-icons/fi";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { FiHeart, FiMenu, FiShoppingCart, FiX } from "react-icons/fi";
+import Modal from "./Modal/Modal";
+import LoginFormModal from "./Modal/LoginFormModal";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
 
     const links = [
         {
@@ -30,9 +33,10 @@ const Navbar = () => {
         <nav className="fixed w-full z-10">
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center py-4">
-                    {/* Left Column - Logo */}
-                    <div className="text-2xl font-bold">
-                        <Link href="/">
+
+                    <div className="font-bold">
+                        <Link href="/" className="course-pointer
+                        ">
                             <Image src='/assets/Logo.png'
                                 alt="Logo"
                                 width={225}
@@ -58,12 +62,22 @@ const Navbar = () => {
                             <FiShoppingCart className="text-xl" />
                             <span>Cart</span>
                         </button>
-                        <button className="p-2 px-4 text-black rounded border border-black">
+                        <button className="p-2 px-4 text-black rounded border border-black"
+                            onClick={() => setModalOpen(!isModalOpen)}>
                             Sign In
                         </button>
+                        <Modal
+                            title={"Sing In"}
+                            isOpen={isModalOpen}
+                            setIsOpen={setModalOpen}>
+                            <LoginFormModal title="Sing In"  />
+                        </Modal>
                     </div>
 
-                    <div className="md:hidden text-black">
+                    <div className="md:hidden text-black flex items-center gap-2">
+                        <button className="flex items-center justify-between gap-2 p-2 text-black">
+                            <FiShoppingCart className="text-xl" />
+                        </button>
                         <button onClick={() => setIsOpen(!isOpen)} className="text-2xl">
                             {isOpen ? <FiX /> : <FiMenu />}
                         </button>
@@ -72,7 +86,7 @@ const Navbar = () => {
 
 
                 {isOpen && (
-                    <div className="md:hidden flex flex-col items-center py-4 space-y-4 text-black bg-white shadow-md">
+                    <div className="md:hidden flex flex-col items-center py-4 space-y-4 text-black bg-white ">
                         {
                             links.map(link =>
                                 <Link href={link.path} key={link.title}>{link.title}</Link>
