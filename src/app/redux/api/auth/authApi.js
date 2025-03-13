@@ -17,8 +17,18 @@ const authApi = baseApi.injectEndpoints({
                 body: data,
             }),
         }),
+
+        allProducts: builder.query({
+            query: () => "/products"
+        }),
+
+        allCategory: builder.query({
+            query: () => "/category"
+        })
+
+
     }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = authApi;
+export const { useRegisterMutation, useLoginMutation, useAllProductsQuery, useAllCategoryQuery } = authApi;
 export default authApi;
