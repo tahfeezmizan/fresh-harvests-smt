@@ -2,65 +2,75 @@ import Image from 'next/image'
 
 const Banner = () => {
   return (
-    <div className="relative w-full h-[600px] bg-cover bg-center" style={{ backgroundImage: "url('/assets/bg-banner.svg')" }}>
-      {/* Overlay for content */}
-      <div className="absolute inset-0 bg-black opacity-40"></div>
+    <div
+      className="h-10/12 pt-36 bg-cover bg-center relative"
+      style={{
+        backgroundImage: "url('/assets/banner-bg.png'), linear-gradient(to right, transparent 0%, transparent 35%, transparent 35%, transparent 65%, #749B3F 65%, #749B3F 100%)",
+        backgroundBlendMode: "overlay"
+      }}
+    >
+      <div className="container mx-auto">
+        <div className="flex items-center justify-between">
+          <div className="flex-1 banner-content relative -mt-36" >
+            <span className='text-sm md:text-xl font-medium text-[#749B3F] bg-[#749B3F1A] py-1.5 px-3 rounded-md'>Welcome to Fresh Harvest</span>
+            <h2 className='text-8xl md:text-5xl font-bold text-[#212337] py-4 pr-40 leading-16'>Fresh Fruits and Vegetables</h2>
+            <p className="text-[#4A4A52] pr-56 leading-6 mb-8">At Fresh Harvests, we are passionate about providing you with the freshest and most flavorful fruits and vegetables</p>
+            <button className='py-4 px-8 text-lg font-medium rounded-md text-white bg-[#FF6A1A]'>Shop Now</button>
 
-      <div className="container mx-auto flex items-center justify-between gap-20 relative z-10 px-10 h-full">
-        {/* Text Section */}
-        <div className="max-w-lg text-white">
-          <h1 className="text-4xl font-bold mb-4">
-            Fresh Fruits and Vegetables
-          </h1>
-          <p className="text-lg mb-8">
-            At Fresh Harvest, we are passionate about providing you with the freshest and most flavorful fruits and vegetables.
-          </p>
-          <button className="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600">
-            Shop Now
-          </button>
+            <div className="">
+              <Image
+                src="/assets/clip-path-group.png"
+                alt='banner subject image'
+                className='absolute left-32'
+                width={55}
+                height={38}
+                priority />
+              <Image
+                src="/assets/leaves.png"
+                alt='banner subject image'
+                className='absolute -bottom-40 -left-14'
+                width={67}
+                height={51}
+                priority />
+              <Image
+                src="/assets/special-offer.png"
+                alt='banner subject image'
+                className='absolute right-14'
+                width={331}
+                height={157}
+                priority />
 
-          {/* Special Offer Section */}
-          <div className="mt-6 bg-green-100 p-4 rounded-lg shadow-lg">
-            <p className="text-center font-bold">Special Offer</p>
-            <div className="flex items-center justify-between mt-4">
-              <div className="flex items-center space-x-3">
-                {/* Special Offer Image */}
-                <Image
-                  src="/special-offer-image.jpg" 
-                  alt="Fresh Salad" 
-                  width={50} 
-                  height={50} 
-                />
-                <span className="font-medium text-gray-900">Fresh Salad</span>
-              </div>
-              <div className="text-green-600 font-bold text-lg">Up to 70% off</div>
             </div>
-            <div className="mt-2 text-center">
-              <input
-                type="text"
-                placeholder="CODE: FRESH25"
-                className="w-full p-2 mt-2 border rounded-md border-gray-300"
-              />
+
+            <div className="absolute -bottom-64">
+              <p className='text-black pb-4'>Download App:</p>
+              <div className="flex items-center gap-5">
+                <Image
+                  src="/assets/appstore.png"
+                  alt='banner subject image'
+                  className=''
+                  width={138}
+                  height={40}
+                  priority />
+                <Image
+                  src="/assets/googleplay.png"
+                  alt='banner subject image'
+                  className=''
+                  width={138}
+                  height={40}
+                  priority />
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Banner Image Section (Optional Image) */}
-        <div className="relative w-1/2">
-          <Image
-            src="/path-to-your-banner-image.jpg" // Optional banner image inside the content section
-            alt="Fresh Harvest Banner"
-            width={600}
-            height={600}
-            className="object-cover rounded-lg shadow-lg"
-          />
+
+          <div className="flex-1">
+            <Image src='/assets/banner-img.png' alt='banner subject image' width={695} height={758} priority />
+          </div>
         </div>
       </div>
-
-    
-      
     </div>
   )
 }
 
-export default Banner
+export default Banner;

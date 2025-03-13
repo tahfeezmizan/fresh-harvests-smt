@@ -2,14 +2,17 @@ import { useLoginMutation, useRegisterMutation } from '@/app/redux/api/auth/auth
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import { useDispatch } from 'react-redux';
 
 export default function LoginFormModal({ title }) {
     const [showPassword, setShowPassword] = useState(false);
     const [isLogin, setIsLogin] = useState(true);
 
+
     const { register: registerLogin, handleSubmit: handleLoginSubmit, formState: { errors: loginErrors } } = useForm();
     const { register: registerRegister, handleSubmit: handleRegisterSubmit, formState: { errors: registerErrors } } = useForm();
 
+    const dispatch = useDispatch();
     const [login, { isLoading, error }] = useLoginMutation();
     const [register, { isLoading: registerLoading, registerError }] = useRegisterMutation();
 
@@ -19,6 +22,7 @@ export default function LoginFormModal({ title }) {
             const response = await login(data).unwrap();
             console.log("Login Success:", response);
             alert("Login Successful!");
+
         } catch (error) {
             console.log("Login Error:", error);
         }
@@ -55,8 +59,8 @@ export default function LoginFormModal({ title }) {
                             <label className="block text-sm font-medium mb-1">Password</label>
                             <input
                                 type={showPassword ? 'text' : 'password'}
-                                {...registerLogin('password', { 
-                                    required: 'Password is required', 
+                                {...registerLogin('password', {
+                                    required: 'Password is required',
                                     minLength: { value: 8, message: 'Password must be at least 8 characters long' }
                                 })}
                                 className="w-full px-4 py-2 border border-[#D9D9D9] outline-none rounded"
@@ -105,8 +109,8 @@ export default function LoginFormModal({ title }) {
                             <label className="block text-sm font-medium mb-1">Password</label>
                             <input
                                 type={showPassword ? 'text' : 'password'}
-                                {...registerRegister('password', { 
-                                    required: 'Password is required', 
+                                {...registerRegister('password', {
+                                    required: 'Password is required',
                                     minLength: { value: 8, message: 'Password must be at least 8 characters long' }
                                 })}
                                 className="w-full px-4 py-2 border border-[#D9D9D9] outline-none rounded"

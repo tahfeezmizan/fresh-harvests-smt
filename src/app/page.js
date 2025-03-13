@@ -1,13 +1,13 @@
 import Banner from "./components/Homepage/Banner";
-import Product from "./components/Homepage/Product";
-import ProductCard from "./components/Homepage/Product/ProductCard";
+import Products from "./products/page";
+
 
 export default function Home() {
   return (
     <div className="">
       <Banner />
-      <Product />
-      
+      <Products />
+
     </div>
   );
 }

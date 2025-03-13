@@ -17,6 +17,7 @@ const authApi = baseApi.injectEndpoints({
                 body: data,
             }),
         }),
+        
 
         allProducts: builder.query({
             query: () => "/products"
@@ -25,6 +26,8 @@ const authApi = baseApi.injectEndpoints({
         allCategory: builder.query({
             query: () => "/category"
         })
+
+
 
 
     }),
