@@ -9,40 +9,39 @@ const Banner = () => {
         backgroundBlendMode: "overlay"
       }}
     >
-      <div className="container mx-auto">
-        <div className="flex items-center justify-between">
-          <div className="flex-1 banner-content relative -mt-36" >
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row gap-11 md:gap-4 items-center justify-between">
+          <div className="flex-1 banner-content relative md:-mt-36" >
             <span className='text-sm md:text-xl font-medium text-[#749B3F] bg-[#749B3F1A] py-1.5 px-3 rounded-md'>Welcome to Fresh Harvest</span>
-            <h2 className='text-8xl md:text-5xl font-bold text-[#212337] py-4 pr-40 leading-16'>Fresh Fruits and Vegetables</h2>
-            <p className="text-[#4A4A52] pr-56 leading-6 mb-8">At Fresh Harvests, we are passionate about providing you with the freshest and most flavorful fruits and vegetables</p>
+            <h2 className='text-5xl md:text-8xl font-bold text-[#212337] py-4 pr-10 md:pr-0 leading-16 md:leading-28'>Fresh Fruits and Vegetables</h2>
+            <p className="text-sm md:text-no text-[#4A4A52] md:pr-56 leading-6 mb-6 md:mb-8">At Fresh Harvests, we are passionate about providing you with the freshest and most flavorful fruits and vegetables</p>
             <button className='py-4 px-8 text-lg font-medium rounded-md text-white bg-[#FF6A1A]'>Shop Now</button>
 
             <div className="">
               <Image
                 src="/assets/clip-path-group.png"
                 alt='banner subject image'
-                className='absolute left-32'
+                className='absolute  left-5 md:left-32 hidden md:block'
                 width={55}
                 height={38}
                 priority />
               <Image
                 src="/assets/leaves.png"
                 alt='banner subject image'
-                className='absolute -bottom-40 -left-14'
+                className='absolute md:-bottom-36 md:-left-14 hidden md:block'
                 width={67}
                 height={51}
                 priority />
               <Image
                 src="/assets/special-offer.png"
                 alt='banner subject image'
-                className='absolute right-14'
+                className='absolute top-[300px] md:top-[420px] right-0 md:right-14 w-[191px] h-[91px] md:w-[331px] md:h-[157px]'
                 width={331}
                 height={157}
                 priority />
-
             </div>
 
-            <div className="absolute -bottom-64">
+            <div className="absolute -bottom-[450px] md:-bottom-56">
               <p className='text-black pb-4'>Download App:</p>
               <div className="flex items-center gap-5">
                 <Image
@@ -62,10 +61,13 @@ const Banner = () => {
               </div>
             </div>
           </div>
-
-
-          <div className="flex-1">
-            <Image src='/assets/banner-img.png' alt='banner subject image' width={695} height={758} priority />
+          <div className="flex-1 banner-img">
+            <Image src='/assets/banner-img.png'
+              alt='banner subject image'
+              className='w-[434px] h-[473px] md:w-[695px] md:h-[758px] mr-0'
+              width={695}
+              height={758}
+              priority />
           </div>
         </div>
       </div>

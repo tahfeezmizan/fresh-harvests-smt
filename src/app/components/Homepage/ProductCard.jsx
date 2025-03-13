@@ -11,11 +11,11 @@ export default function ProductCard({ product }) {
     return (
         <Link href={id}>
             <div
-                className="bg-white rounded-2xl p-5 flex flex-col items-center shadow-lg"
+                className="bg-white rounded-2xl p-2 md:p-5 flex flex-col items-center shadow-lg"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <div className="w-full h-56 flex items-center rounded-lg justify-center relative bg-[#F4F6F6]">
+                <div className="w-full h-40 md:h-56 flex items-center rounded-lg justify-center relative bg-[#F4F6F6] overflow-hidden">
                     <Image
                         src={images[0]}
                         alt={productName}

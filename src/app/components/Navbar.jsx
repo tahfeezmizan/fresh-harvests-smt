@@ -31,8 +31,8 @@ const Navbar = () => {
 
     return (
         <nav className={`fixed w-full z-10 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
-            <div className="container mx-auto px-4">
-                <div className="flex justify-between items-center py-4">
+            <div className="container mx-auto">
+                <div className="flex justify-between items-center py-4 px-4 md:px-0">
                     <div className="font-bold">
                         <Link href="/">
                             <Image src='/assets/Logo.png' alt="Logo" width={225} height={40} priority />
@@ -60,10 +60,10 @@ const Navbar = () => {
                         </Modal>
                     </div>
                     <div className="md:hidden text-black flex items-center gap-2">
-                        <button className="flex items-center p-2 text-black">
+                        <button className={`flex items-center p-2 ${isScrolled ? 'text-black' : 'text-white'}`}>
                             <FiShoppingCart className="text-xl" />
                         </button>
-                        <button onClick={() => setIsOpen(!isOpen)} className="text-2xl">
+                        <button onClick={() => setIsOpen(!isOpen)} className={`text-2xl ${isScrolled ? 'text-black' : 'text-white'}`}>
                             {isOpen ? <FiX /> : <FiMenu />}
                         </button>
                     </div>

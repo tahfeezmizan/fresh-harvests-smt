@@ -23,7 +23,7 @@ export default function Products() {
 
     return (
         <div className='py-24'>
-            <div className="container mx-auto">
+            <div className="container mx-auto px-4">
                 <div className="section-header text-center">
                     <span className='text-sm md:text-xl font-medium text-[#749B3F] bg-[#749B3F1A] py-1.5 px-3 rounded-md'>Our Products</span>
                     <h2 className='text-3xl md:text-5xl font-bold text-[#212337] py-4'>Our Fresh Products</h2>
@@ -49,7 +49,7 @@ export default function Products() {
                 </div>
 
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8 text-center">
                     {filteredProducts.length > 0 ? (
                         filteredProducts.slice(0, 8)?.map(product => (
                             <ProductCard product={product} key={product.id}></ProductCard>
