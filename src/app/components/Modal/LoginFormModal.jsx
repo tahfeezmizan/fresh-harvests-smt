@@ -2,7 +2,6 @@ import { useLoginMutation, useRegisterMutation } from '@/app/redux/api/auth/auth
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import { useDispatch } from 'react-redux';
 
 export default function LoginFormModal({ title }) {
     const [showPassword, setShowPassword] = useState(false);
@@ -12,7 +11,6 @@ export default function LoginFormModal({ title }) {
     const { register: registerLogin, handleSubmit: handleLoginSubmit, formState: { errors: loginErrors } } = useForm();
     const { register: registerRegister, handleSubmit: handleRegisterSubmit, formState: { errors: registerErrors } } = useForm();
 
-    const dispatch = useDispatch();
     const [login, { isLoading, error }] = useLoginMutation();
     const [register, { isLoading: registerLoading, registerError }] = useRegisterMutation();
 
@@ -20,7 +18,11 @@ export default function LoginFormModal({ title }) {
         try {
             console.log("Login Data:", data);
             const response = await login(data).unwrap();
+
             console.log("Login Success:", response);
+
+            localStorage.setItem('user', JSON.stringify(response.data));
+
             alert("Login Successful!");
 
         } catch (error) {
