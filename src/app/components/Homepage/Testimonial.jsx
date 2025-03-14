@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import TestimonialSlider from '../TestimonialSlider/TestimonialSlider'
 
 export default function Testimonial() {
     return (
@@ -11,23 +12,7 @@ export default function Testimonial() {
                     <p className="font-normal text-[#4A4A52] px-0 md:px-52">Don't just take our word for it—here's what some of our customers have to say about their experience with Fresh Harvest:</p>
                 </div>
 
-                <div className="grid grid-cols-6 items-center justify-around gap-10">
-                    <div className="col-span-2">
-                        <Image src='/assets/client-image.png' alt='banner subject image' width={335} height={454} priority />
-                    </div>
-
-                    <div className="col-span-4 ">
-                        <div className="bg-gray-100 rounded-4xl p-10 text-black">
-                            <p className="text-xl font-light leading-5">"I absolutely love Fresh Harvest! The quality of their produce is outstanding. It's always fresh, flavorful, and delicious. The convenience of ordering online and having it delivered to my doorstep saves me so much time. Fresh Harvest has become my go-to for all my fruit and vegetable needs.</p>
-
-                            <h3 className='text-lg leading-6 mt-8'><span className='font-medium'>Jane Doe</span> - Professional chef</h3>
-                        </div>
-                    </div>
-
-                    <div className="controler flex items-center gap-4 justify-center">
-                        <div className="w-4 h-4 bg-[#749B3F] rounded-4xl"></div>
-                    </div>
-                </div>
+                <TestimonialSlider />
             </div>
         </div>
     )
