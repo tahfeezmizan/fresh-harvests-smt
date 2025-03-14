@@ -15,17 +15,3 @@ export const baseApi = createApi({
     }),
     endpoints: () => ({}),
 });
-
-// const baseQuery = fetchBaseQuery({
-//     baseUrl: SERVER_BASE_URL,
-//     prepareHeaders: (headers, { getState }) => {
-
-//         const token = localStorage.getItem('room_token');
-//         if (token) {
-//             // headers.set('authorization', `${token}`);
-//             headers.set('authorization', token);
-//         }
-
-//         return headers;
-//     },
-// });

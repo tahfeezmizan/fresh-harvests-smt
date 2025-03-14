@@ -1,7 +1,10 @@
 import React from 'react'
+import AboutUs from '../components/Homepage/AboutUs'
 
-export default function page() {
+export default function AboutUsPage() {
     return (
-        <div>page</div>
+        <div>
+            <AboutUs />
+        </div>
     )
 }

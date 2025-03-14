@@ -54,6 +54,10 @@ const authApi = baseApi.injectEndpoints({
         allProducts: builder.query({
             query: () => "/products",
         }),
+        getProductsById: builder.query({
+            query: (id) => `/products/${id}`,
+        }),
+
 
         //category endpoints
         allCategory: builder.query({
@@ -87,7 +91,7 @@ const authApi = baseApi.injectEndpoints({
 export const {
     useRegisterMutation,
     useLoginMutation,
-    useProfileQuery, 
+    useProfileQuery,
     useGetAllUsersQuery,
     useUpdateProfileMutation,
     useUpdateUserByIdMutation,
@@ -95,7 +99,8 @@ export const {
     useUpdateCategoryByIdMutation,
     useDeleteCategoryByIdMutation,
     useAllProductsQuery,
-    useAllCategoryQuery
+    useAllCategoryQuery,
+    useGetProductsByIdQuery
 } = authApi;
 
 export default authApi;

@@ -9,7 +9,7 @@ export default function ProductCard({ product }) {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <Link href={id}>
+        <Link href={`/products/${id}`}>
             <div
                 className="bg-white rounded-2xl p-2 md:p-5 flex flex-col items-center shadow-lg"
                 onMouseEnter={() => setIsHovered(true)}

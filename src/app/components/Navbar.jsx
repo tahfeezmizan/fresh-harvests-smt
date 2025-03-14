@@ -28,7 +28,7 @@ const Navbar = () => {
         setUser(null);
     };
 
-    // Scroll effect
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
@@ -43,12 +43,19 @@ const Navbar = () => {
     const pathname = usePathname()
     if (pathname.startsWith("/dashboard")) return null;
 
+
     const links = [
         { title: "Home", path: "/" },
         { title: "Shop", path: "/products" },
-        { title: "About us", path: "/" },
+        { title: "About us", path: "/aboutus" },
         { title: "Blog", path: "/" },
     ];
+
+    const isHomeRoute = pathname === "/";
+
+    const textColor = isHomeRoute 
+        ? (isScrolled ? "text-black" : "text-white") 
+        : "text-black";
 
     return (
         <nav className={`fixed w-full z-10 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
@@ -68,18 +75,18 @@ const Navbar = () => {
                         ))}
                     </div>
 
-                    {/* Right-side Icons */}
+
                     <div className="hidden md:flex space-x-4">
-                        <button className={`flex items-center gap-2 p-2 ${isScrolled ? 'text-black' : 'text-white'}`}>
+                        <button className={`flex items-center gap-2 p-2 ${textColor}`}>
                             <FiHeart className="text-xl" />
                             <span>Favorites</span>
                         </button>
-                        <button className={`flex items-center gap-2 p-2 ${isScrolled ? 'text-black' : 'text-white'}`}>
+                        <button className={`flex items-center gap-2 p-2 ${textColor}`}>
                             <FiShoppingCart className="text-xl" />
                             <span>Cart</span>
                         </button>
 
-                        {/* User Profile or Sign In */}
+
                         {user?.email ? (
                             <div className="relative">
                                 <button onClick={() => setDropdownOpen(!dropdownOpen)} className="flex items-center">
@@ -105,7 +112,7 @@ const Navbar = () => {
                                 )}
                             </div>
                         ) : (
-                            <button className={`p-2 px-4 rounded border ${isScrolled ? 'border-black text-black' : 'text-white border-white'}`} onClick={() => setModalOpen(!isModalOpen)}>
+                            <button className={`p-2 px-4 rounded border ${textColor}`} onClick={() => setModalOpen(!isModalOpen)}>
                                 Sign In
                             </button>
                         )}
