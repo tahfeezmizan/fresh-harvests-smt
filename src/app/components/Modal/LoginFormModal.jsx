@@ -1,4 +1,5 @@
 import { useLoginMutation, useRegisterMutation } from '@/app/redux/api/auth/authApi';
+import { verifyToken } from '@/lib/jwt-token';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
@@ -16,12 +17,14 @@ export default function LoginFormModal({ title }) {
 
     const onLoginSubmit = async (data) => {
         try {
-            console.log("Login Data:", data);
             const response = await login(data).unwrap();
 
-            console.log("Login Success:", response);
+            const storeToken = verifyToken(response?.data?.token);
 
-            localStorage.setItem('user', JSON.stringify(response.data));
+            console.log("decoded Token", storeToken);
+
+            localStorage.setItem('token', JSON.stringify(response?.data?.token));
+            localStorage.setItem('decoded-user', JSON.stringify(storeToken));
 
             alert("Login Successful!");
 
