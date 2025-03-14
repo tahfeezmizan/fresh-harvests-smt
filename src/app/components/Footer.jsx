@@ -2,15 +2,21 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { MdEmail, MdLocationOn, MdPhone } from 'react-icons/md';
 
 export default function Footer() {
+
+    const pathname = usePathname();
+    
+    if (pathname.startsWith("/dashboard")) return null;
+
     return (
         <footer className="bg-gray-100 py-10 px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-10">
-                    <div className='col-span-3 flex flex-col justify-between'> 
+                    <div className='col-span-3 flex flex-col justify-between'>
                         <Link href="/">
                             <Image src='/assets/Logo.png' alt="Logo" width={225} height={40} priority />
                         </Link>

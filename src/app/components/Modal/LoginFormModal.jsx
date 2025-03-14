@@ -18,14 +18,10 @@ export default function LoginFormModal({ title }) {
     const onLoginSubmit = async (data) => {
         try {
             const response = await login(data).unwrap();
-
             const storeToken = verifyToken(response?.data?.token);
-
-            console.log("decoded Token", storeToken);
 
             localStorage.setItem('token', JSON.stringify(response?.data?.token));
             localStorage.setItem('decoded-user', JSON.stringify(storeToken));
-
             alert("Login Successful!");
 
         } catch (error) {
