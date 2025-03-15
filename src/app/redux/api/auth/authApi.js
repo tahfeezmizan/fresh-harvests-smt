@@ -20,6 +20,7 @@ const authApi = baseApi.injectEndpoints({
         getAllUsers: builder.query({
             query: () => "/users",
         }),
+        
         profile: builder.query({
             query: () => ({
                 url: "/auth/profile",

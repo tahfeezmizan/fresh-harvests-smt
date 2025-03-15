@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiHeart, FiMenu, FiShoppingCart, FiX } from "react-icons/fi";
-import LoginFormModal from "./Modal/LoginFormModal";
-import Modal from "./Modal/Modal";
 import { usePathname } from "next/navigation";
+import LoginFormModal from "../Modal/LoginFormModal";
+import Modal from "../Modal/Modal";
 
 const Navbar = () => {
     const [user, setUser] = useState(null);
@@ -24,10 +24,8 @@ const Navbar = () => {
     const handleLogout = () => {
         localStorage.removeItem("decoded-user");
         localStorage.removeItem("token");
-
         setUser(null);
     };
-
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,7 +41,6 @@ const Navbar = () => {
     const pathname = usePathname()
     if (pathname.startsWith("/dashboard")) return null;
 
-
     const links = [
         { title: "Home", path: "/" },
         { title: "Shop", path: "/products" },
@@ -53,28 +50,25 @@ const Navbar = () => {
 
     const isHomeRoute = pathname === "/";
 
-    const textColor = isHomeRoute 
-        ? (isScrolled ? "text-black" : "text-white") 
+    const textColor = isHomeRoute
+        ? (isScrolled ? "text-black" : "text-white")
         : "text-black";
 
     return (
         <nav className={`fixed w-full z-10 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
             <div className="container mx-auto">
                 <div className="flex justify-between items-center py-4 px-4 md:px-0">
-                    {/* Logo */}
                     <div className="font-bold">
                         <Link href="/">
                             <Image src="/assets/Logo.png" alt="Logo" width={225} height={40} priority />
                         </Link>
                     </div>
 
-                    {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-6 text-black">
                         {links.map(link => (
                             <Link href={link.path} key={link.title}>{link.title}</Link>
                         ))}
                     </div>
-
 
                     <div className="hidden md:flex space-x-4">
                         <button className={`flex items-center gap-2 p-2 ${textColor}`}>
@@ -122,7 +116,7 @@ const Navbar = () => {
                         </Modal>
                     </div>
 
-                    {/* Mobile Menu */}
+
                     <div className="md:hidden text-black flex items-center gap-2">
                         <button className={`flex items-center p-2 ${isScrolled ? 'text-black' : 'text-white'}`}>
                             <FiShoppingCart className="text-xl" />
@@ -133,7 +127,7 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Mobile Dropdown Menu */}
+
                 {isOpen && (
                     <div className="md:hidden flex flex-col items-center py-4 space-y-4 text-black bg-white">
                         {links.map(link => (

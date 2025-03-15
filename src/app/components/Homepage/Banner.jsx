@@ -50,14 +50,17 @@ const Banner = () => {
                   className=''
                   width={138}
                   height={40}
-                  priority />
+                  priority
+                />
+
                 <Image
                   src="/assets/googleplay.png"
                   alt='banner subject image'
                   className=''
                   width={138}
                   height={40}
-                  priority />
+                  priority 
+                  />
               </div>
             </div>
           </div>

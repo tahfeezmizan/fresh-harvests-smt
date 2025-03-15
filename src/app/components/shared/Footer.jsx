@@ -7,9 +7,8 @@ import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { MdEmail, MdLocationOn, MdPhone } from 'react-icons/md';
 
 export default function Footer() {
-
     const pathname = usePathname();
-    
+
     if (pathname.startsWith("/dashboard")) return null;
 
     return (
