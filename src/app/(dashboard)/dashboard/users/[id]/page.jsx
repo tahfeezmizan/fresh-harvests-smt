@@ -1,11 +1,17 @@
 'use client';
 import { useParams } from 'next/navigation';
-import React from 'react'
+import React, { use } from 'react'
 
 export default function UpdateProfile() {
     const { id } = useParams();
-    console.log(id)
+
+    const userData = localStorage.getItem('decoded-user');
+
+
+    console.log(use)
     return (
-        <div>page</div>
+        <div>
+            <h1>{id}</h1>
+        </div>
     )
 }

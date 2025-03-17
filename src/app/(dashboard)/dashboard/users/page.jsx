@@ -37,7 +37,7 @@ export default function Users() {
                 <td className="p-3 text-sm">{user?.email}</td>
                 <td className="p-3 text-sm">{user?.role}</td>
                 <td className="p-3 text-sm">
-                  <Link href={`/users/${user?.id}`} className="text-blue-500 hover:underline">Update</Link>
+                  <Link href={`/dashboard/users/${user?.id}`} className="text-blue-500 hover:underline">Update</Link>
                 </td>
               </tr>
             ))}
